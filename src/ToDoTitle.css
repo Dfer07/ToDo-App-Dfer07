@@ -1,0 +1,14 @@
+.todo-title {
+    text-align: center;
+    margin: 24px 0;
+    font-size: 56px; /* Un título más grande */
+    font-weight: 700;
+    color: white; /* Color de texto blanco y llamativo */
+    letter-spacing: -0.5px;
+}
+
+@media (max-width: 768px) {
+    .todo-title {
+        font-size: 40px;
+    }
+}

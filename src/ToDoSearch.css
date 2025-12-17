@@ -1,0 +1,33 @@
+.todo-search {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 24px;
+    padding: 16px 24px;
+    font-size: 16px;
+    border: 2px solid #4a5568;
+    border-radius: 12px;
+    background: #2d3748;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    font-family: inherit;
+    color: #e2e8f0;
+}
+
+.todo-search::placeholder {
+    color: #718096;
+}
+
+.todo-search:focus {
+    outline: 2px solid #667eea;  
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.2);
+    transform: translateY(-4px);
+    transition: transform 0.4s ease;
+}
+
+@media (max-width: 768px) {
+    .todo-search {
+        max-width: 100%;
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,114 @@
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    margin: 8px 0;
+    background: #2d3748;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    user-select: none;
+}
+
+.todo-item-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    /* Asegura que el contenido ocupe todo el espacio disponible, es como flex-grow: 1; */
+    gap: 12px;
+}
+
+.todo-item p {
+    margin: 0;
+    font-size: 16px;
+    color: #e2e8f0;
+    transition: all 0.5s ease;
+    font-weight: 500;
+}
+
+.todo-item-check {
+    cursor: pointer;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    user-select: none;
+    /* Evita que el usuario pueda seleccionar el texto */
+    -webkit-tap-highlight-color: transparent;
+    /* para que no se vea el efecto de tap en el boton */
+
+}
+
+.todo-item-delete {
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    /* para que no se vea el efecto de tap en el boton */
+}
+
+/* Estado completado */
+.todo-item.completed {
+    background: #1a202c;
+    border-left-color: #10b981;
+    opacity: 0.85;
+}
+
+.todo-item.completed p {
+    color: #94a3b8;
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    opacity: 0.7;
+}
+
+.todo-item.completed .todo-item-check {
+    filter: hue-rotate(-100deg) saturate(5);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+
+.todo-item-check:active {
+    transform: scale(1.2);
+    opacity: 1;
+    filter: hue-rotate(-100deg) saturate(5) brightness(1.2);
+}
+
+/* para dispositivos con raton */
+@media (hover: hover) and (pointer: fine) {
+    .todo-item:hover {
+        transform: translateX(8px);
+    }
+
+    .todo-item-check:hover {
+        transform: scale(1.2);
+        opacity: 1;
+        filter: hue-rotate(-100deg) saturate(5) brightness(1.2);
+    }
+
+    .todo-item-delete:hover {
+        transform: scale(1.2);
+        opacity: 1;
+        filter: hue-rotate(120deg) saturate(5) brightness(1.2);
+    }
+}
+
+/* para dispositivos moviles - touch */
+@media (hover: none) and (pointer: coarse) {
+    /* Para que quede desplazado al presionar con el dedo */
+    .todo-item:hover {
+        transform: translateX(8px);
+    }
+}
+
+.todo-item-delete:active {
+    transition: none;
+    transform: scale(0.6);
+    opacity: 1;
+    filter: hue-rotate(120deg) saturate(25) brightness(1.2);
+}

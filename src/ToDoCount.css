@@ -1,0 +1,18 @@
+.todo-count {
+    text-align: center;
+    margin: 24px 0;
+    box-sizing: border-box;
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #a78bfa 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* Para que el texto se vea como si fuera un gradiente en el navegador de mozilla */
+    letter-spacing: -0.5px; /* Espacio entre las letras */
+}
+
+@media (max-width: 768px) {
+    .todo-count {
+        font-size: 22px;
+    }
+}
