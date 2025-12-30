@@ -10,13 +10,15 @@
     cursor: pointer;
     color: white;
     box-shadow: 0 8px 24px rgb(142, 102, 234);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Controla el hover y el active */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Controla el hover y el active */
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
     animation: pulse 2s infinite;
-    -webkit-tap-highlight-color: transparent; /* Para que no se vea el efecto de tap en el boton */
+    -webkit-tap-highlight-color: transparent;
+    /* Para que no se vea el efecto de tap en el boton */
 }
 
 .icon {
@@ -24,16 +26,21 @@
     height: 28px;
     user-select: none;
 }
- /* Si el usuario tiene el raton */
+
+/* Si el usuario tiene el raton */
 @media (hover: hover) and (pointer: fine) {
     .create-button:hover {
         transform: scale(1.2) rotate(90deg);
         box-shadow: 0 12px 32px rgba(102, 126, 234, 0.6);
     }
 }
+
 .create-button:active {
     transition: none;
-    transform: scale(0.90);
+
+    .icon{
+        transform: scale(0.7);
+    }
 }
 
 @keyframes pulse {

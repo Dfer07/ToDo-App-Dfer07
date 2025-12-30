@@ -1,0 +1,202 @@
+/* Overlay - Fondo difuminado que ocupa toda la pantalla */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Animación de entrada del overlay */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Caja del modal - Centrada con bordes redondeados */
+.modal-content {
+  position: relative;
+  background: #2d3748;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: slideIn 0.3s ease-out;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* Animación de entrada de la caja */
+@keyframes slideIn {
+  from {
+    transform: scale(0.9) translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Botón de cerrar - Posicionado en esquina superior derecha */
+.modal-content svg {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 24px;
+  height: 24px;
+  color: #e2e8f0;
+  stroke-width: 24px; /* esto es para que el icono sea mas grueso */
+}
+
+
+.modal-content svg:hover {
+    transform: rotate(90deg) scale(1.3);
+}
+
+.modal-content svg:active {
+  transform: scale(0.8);
+}   
+/* Header del modal */
+.modal-header {
+  padding: 2rem 2rem 1.5rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.modal-header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center; 
+}
+
+/* Body del modal */
+.modal-body {
+  padding: 2rem;
+  background: #2d3748;
+  min-height: 150px;
+}
+
+.modal-body p {
+  color: #e2e8f0;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Estilos para formularios (cuando los agregues) */
+.modal-body form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.modal-body label {
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.modal-body input,
+.modal-body textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: #1a202c;
+  border: 2px solid #4a5568;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #e2e8f0;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.modal-body input::placeholder,
+.modal-body textarea::placeholder {
+  color: #718096;
+}
+
+.modal-body input:focus,
+.modal-body textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.modal-body textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.modal-body button[type="submit"] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.modal-body button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.modal-body button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsive - Ajustes para móviles */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+    border-radius: 16px;
+  }
+
+  .modal-header {
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+  }
+
+  .modal-header h1 {
+    font-size: 1.4rem;
+    padding-right: 35px;
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+  }
+
+  .modal-content svg {
+    top: 12px;
+    right: 12px;
+  }
+  .modal-content svg:active {
+    transform: scale(0.8);
+  }
+}
+
+

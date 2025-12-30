@@ -30,9 +30,10 @@
 
 .todo-item-check {
     cursor: pointer;
+    color: grey;
     font-size: 24px;
     transition: all 0.3s ease;
-    filter: grayscale(100%);
+    /* filter: grayscale(100%); */
     opacity: 0.5;
     user-select: none;
     /* Evita que el usuario pueda seleccionar el texto */
@@ -45,7 +46,8 @@
     cursor: pointer;
     font-size: 20px;
     transition: all 0.3s ease;
-    filter: grayscale(100%);
+    color: gray;
+    /* filter: grayscale(100%); */
     opacity: 0.5;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
@@ -67,48 +69,47 @@
 }
 
 .todo-item.completed .todo-item-check {
-    filter: hue-rotate(-100deg) saturate(5);
+    /* filter: hue-rotate(-100deg) saturate(5); */
+    fill: #10b981;
+    color: #10b981;
     opacity: 1;
     transform: scale(1.1);
 }
 
 
-.todo-item-check:active {
-    transform: scale(1.2);
-    opacity: 1;
-    filter: hue-rotate(-100deg) saturate(5) brightness(1.2);
-}
 
 /* para dispositivos con raton */
 @media (hover: hover) and (pointer: fine) {
     .todo-item:hover {
         transform: translateX(8px);
     }
-
+    
     .todo-item-check:hover {
         transform: scale(1.2);
         opacity: 1;
-        filter: hue-rotate(-100deg) saturate(5) brightness(1.2);
+        color: #10b981;
+        /* filter: hue-rotate(-100deg) saturate(5) brightness(1.2); */
     }
-
+    
     .todo-item-delete:hover {
         transform: scale(1.2);
+        color: red;
         opacity: 1;
-        filter: hue-rotate(120deg) saturate(5) brightness(1.2);
+        /* filter: hue-rotate(120deg) saturate(5) brightness(1.2); */
     }
 }
 
 /* para dispositivos moviles - touch */
 @media (hover: none) and (pointer: coarse) {
     /* Para que quede desplazado al presionar con el dedo */
-    .todo-item:hover {
+    /* .todo-item:hover {
         transform: translateX(8px);
-    }
+    } */
 }
 
 .todo-item-delete:active {
     transition: none;
-    transform: scale(0.6);
+    transform: scale(0.85);
     opacity: 1;
-    filter: hue-rotate(120deg) saturate(25) brightness(1.2);
+    color: red;
 }

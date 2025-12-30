@@ -1,7 +1,12 @@
+import React from 'react';
 import './ToDoProgress.css';
+import { TodoContext } from '../TodoContext';
 
-function ToDoProgress({ completado, total }) {
-  const porcentaje = total === 0 ? 0 : Math.round((completado/total)*100)
+function ToDoProgress() {
+
+  const { toDosCompletados, toDosTotales } = React.useContext(TodoContext)
+
+  const porcentaje = toDosTotales === 0 ? 0 : Math.round((toDosCompletados/toDosTotales)*100)
 
   return (
     <div className="todo-progress-container">

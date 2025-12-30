@@ -1,0 +1,64 @@
+.todo-item-load {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    margin: 8px 0;
+    background: #2d3748;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.todo-item-load::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, transparent, #666666, transparent); 
+    animation: load 1s  ease-in infinite;
+}
+
+@keyframes load {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.todo-item-content-load {
+    display: flex;
+    align-items: center;
+
+    flex: 1;
+    /* Asegura que el contenido ocupe todo el espacio disponible, es como flex-grow: 1; */
+    gap: 12px;
+}
+
+
+.todo-item-load-check {
+    color: grey;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    opacity: 0.5;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+.todo-item-load-delete {
+    font-size: 20px;
+    transition: all 0.3s ease;
+    color: gray;
+    opacity: 0.5;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
