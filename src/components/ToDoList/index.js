@@ -14,8 +14,6 @@ function ToDoList({children}) {
         <ul className="todo-list">
           <ToDoLoad/>
           <ToDoLoad/>
-          <ToDoLoad/>
-          <ToDoLoad/>
         </ul>
       </div>
     )
