@@ -7,7 +7,7 @@
   height: 100vh;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); 
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,14 +65,13 @@
   stroke-width: 24px; /* esto es para que el icono sea mas grueso */
 }
 
-
 .modal-content svg:hover {
-    transform: rotate(90deg) scale(1.3);
+  transform: rotate(90deg) scale(1.3);
 }
 
 .modal-content svg:active {
   transform: scale(0.8);
-}   
+}
 /* Header del modal */
 .modal-header {
   padding: 2rem 2rem 1.5rem 2rem;
@@ -85,7 +84,7 @@
   font-weight: 700;
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  text-align: center; 
+  text-align: center;
 }
 
 /* Body del modal */
@@ -93,6 +92,11 @@
   padding: 2rem;
   background: #2d3748;
   min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
 }
 
 .modal-body p {
@@ -128,6 +132,8 @@
   color: #e2e8f0;
   transition: all 0.3s ease;
   box-sizing: border-box;
+  resize: none;
+  min-height: 120px;
 }
 
 .modal-body input::placeholder,
@@ -140,11 +146,6 @@
   outline: none;
   border-color: #667eea;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-.modal-body textarea {
-  resize: vertical;
-  min-height: 120px;
 }
 
 .modal-body button[type="submit"] {
@@ -198,5 +199,3 @@
     transform: scale(0.8);
   }
 }
-
-

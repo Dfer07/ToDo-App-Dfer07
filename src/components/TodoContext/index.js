@@ -30,6 +30,9 @@ function ToDoProvider({ children }) {
 
   /* string.includes("") siempre retorna true --> si valorBusqueda esta vacio entonces retorna todos */
   const todosFiltrados = todos.filter((todo) => {
+    // Validar que todo.text existe antes de procesarlo
+    if (!todo.text) return false;
+
     const toDoTextLower = todo.text
       .toLowerCase()
       .normalize("NFD")
@@ -41,9 +44,30 @@ function ToDoProvider({ children }) {
     return toDoTextLower.includes(valorBusquedaLower);
   });
 
-  const [modal, setModal] = React.useState(false)
-  const toogleModal = () => setModal(!modal)
-  
+  const [modal, setModal] = React.useState(false);
+  const toogleModal = () => setModal(!modal);
+
+  const createTodo = (event) => {
+    event.preventDefault();
+    const newTodoText = event.target.newTodo.value.trim();
+
+    if (newTodoText.length == 0) {
+      event.target.newTodo.focus();
+      event.target.newTodo.setCustomValidity("No puede contener solo espacios");
+      event.target.newTodo.reportValidity();
+      return;
+    }
+    event.target.newTodo.setCustomValidity("");
+
+    const newTodo = {
+      id: todos.length + 1,
+      text: newTodoText,
+      realizado: false,
+    };
+    setToDos([...todos, newTodo]);
+    toogleModal();
+  };
+
   const toDosCompletados = todos.filter((todo) => todo.realizado).length;
   const toDosTotales = todos.length;
 
@@ -61,6 +85,7 @@ function ToDoProvider({ children }) {
         deleteTodo,
         toogleModal,
         modal,
+        createTodo,
       }}
     >
       {children}
