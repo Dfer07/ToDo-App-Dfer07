@@ -51,7 +51,7 @@ function ToDoProvider({ children }) {
     event.preventDefault();
     const newTodoText = event.target.newTodo.value.trim();
 
-    if (newTodoText.length == 0) {
+    if (newTodoText.length === 0) {
       event.target.newTodo.focus();
       event.target.newTodo.setCustomValidity("No puede contener solo espacios");
       event.target.newTodo.reportValidity();
